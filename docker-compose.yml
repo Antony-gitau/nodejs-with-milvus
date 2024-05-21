@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  milvus:
+    image: milvusdb/milvus:v2.3.16-20240521-0ae4c8a1-amd64
+    container_name: milvus
+    environment:
+      - TZ=UTC+3
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+    volumes:
+      - ./volumes:/var/lib/milvus
+    command: ["milvus", "run"] 
